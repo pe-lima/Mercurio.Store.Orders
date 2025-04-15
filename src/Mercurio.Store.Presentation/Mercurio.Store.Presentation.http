@@ -1,0 +1,6 @@
+@Mercurio.Store.Presentation_HostAddress = http://localhost:5212
+
+GET {{Mercurio.Store.Presentation_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
