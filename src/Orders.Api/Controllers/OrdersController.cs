@@ -32,7 +32,7 @@ public class OrdersController : ControllerBase
     [HttpGet("{id:guid}")]
     public async Task<IActionResult> GetById(Guid id)
     {
-        var order = await _dispatcher.SendAsync<GetOrdersByIdQuery, OrderDto>(new GetOrdersByIdQuery(id));
+        var order = await _dispatcher.SendAsync<GetOrdersByIdQuery, OrderDto>(new (id));
         
         return Ok(order);
     }
@@ -40,8 +40,15 @@ public class OrdersController : ControllerBase
     [HttpGet]
     public async Task<IActionResult> GetAll([FromQuery] bool includeInactive = false)
     {
-        var result = await _dispatcher.SendAsync<GetAllOrdersQuery, List<OrderDto>>(new GetAllOrdersQuery(includeInactive));
+        var result = await _dispatcher.SendAsync<GetAllOrdersQuery, List<OrderDto>>(new (includeInactive));
 
         return Ok(result);
+    }
+
+    [HttpDelete("{id:guid}")]
+    public async Task<IActionResult> Delete(Guid id)
+    {
+        await _dispatcher.SendAsync<DeleteOrderCommand>(new(id));
+        return NoContent();
     }
 }
