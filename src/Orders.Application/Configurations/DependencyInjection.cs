@@ -24,6 +24,7 @@ namespace Orders.Application.Configurations
             services.AddScoped<IHandler<CreateOrderCommand, OrderDto>, CreateOrderCommandHandler>();
             services.AddScoped<IHandler<GetAllOrdersQuery, List<OrderDto>>, GetAllOrdersQueryHandler>();
             services.AddScoped<IHandler<GetOrdersByIdQuery, OrderDto>, GetOrdersByIdQueryHandler>();
+            services.AddScoped<IHandler<DeleteOrderCommand>, DeleteOrderCommandHandler>();
 
             // (validators)
             services.AddValidatorsFromAssemblyContaining<CreateOrderCommandValidator>();

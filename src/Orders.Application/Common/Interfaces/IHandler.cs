@@ -11,4 +11,9 @@ namespace Orders.Application.Common.Interfaces
         Task<TResult> HandleAsync(TCommand command);
 
     }
+
+    public interface IHandler<in TCommand>
+    {
+        Task HandleAsync(TCommand command);
+    }
 }

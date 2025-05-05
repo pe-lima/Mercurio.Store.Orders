@@ -16,5 +16,11 @@ namespace Orders.Application.Common.Implementations
             var handler = _provider.GetRequiredService<IHandler<TRequest, TResult>>();
             return await handler.HandleAsync(request);
         }
+
+        public async Task SendAsync<TRequest>(TRequest request)
+        {
+            var handler = _provider.GetRequiredService<IHandler<TRequest>>();
+            await handler.HandleAsync(request);
+        }
     }
 }
