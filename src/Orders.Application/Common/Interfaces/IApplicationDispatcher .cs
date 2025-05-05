@@ -9,5 +9,6 @@ namespace Orders.Application.Common.Interfaces
     public interface IApplicationDispatcher
     {
         Task<TResult> SendAsync<TRequest, TResult>(TRequest request);
+        Task SendAsync<TRequest>(TRequest request);
     }
 }
