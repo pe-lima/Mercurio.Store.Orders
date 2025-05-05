@@ -6,5 +6,6 @@ namespace Orders.Domain.Interfaces.Repositories
     {
         Task<IEnumerable<Order>> GetByBuyerIdAsync(Guid buyerId);
         Task<Order?> GetWithItemsAsync(Guid orderId);
+        Task<IEnumerable<Order>> GetWithItemsAsync();
     }
 }

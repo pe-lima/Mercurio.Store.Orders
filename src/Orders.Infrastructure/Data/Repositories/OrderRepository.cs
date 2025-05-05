@@ -19,5 +19,10 @@ namespace Orders.Infrastructure.Data.Repositories
             await _dbSet
                 .Include(o => o.Items)
                 .FirstOrDefaultAsync(o => o.Id == orderId);
+
+        public async Task<IEnumerable<Order>> GetWithItemsAsync() =>
+            await _dbSet
+                .Include(o => o.Items)
+                .ToListAsync();
     }
 }
