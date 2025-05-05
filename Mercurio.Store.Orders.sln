@@ -26,6 +26,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Orders.Infrastructure", "sr
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Orders.Tests", "Orders.Tests\Orders.Tests.csproj", "{B8400F01-E3A2-1CA0-C20D-ABE68C7BEF2E}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "6-CrossCutting", "6-CrossCutting", "{D5D95469-817C-4D2B-B715-75A6E49C12D6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Orders.CrossCutting", "src\Orders.CrossCutting\Orders.CrossCutting.csproj", "{A895F1D7-14FA-4DF6-B268-FC9EB551908F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -56,6 +60,10 @@ Global
 		{B8400F01-E3A2-1CA0-C20D-ABE68C7BEF2E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B8400F01-E3A2-1CA0-C20D-ABE68C7BEF2E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B8400F01-E3A2-1CA0-C20D-ABE68C7BEF2E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A895F1D7-14FA-4DF6-B268-FC9EB551908F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A895F1D7-14FA-4DF6-B268-FC9EB551908F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A895F1D7-14FA-4DF6-B268-FC9EB551908F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A895F1D7-14FA-4DF6-B268-FC9EB551908F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -67,6 +75,7 @@ Global
 		{3C9FF3C3-6B52-C89F-2217-7463F34EE584} = {B14BE2AB-1E29-447D-937E-B66676096226}
 		{DFD780BB-1C08-B50E-B9E9-1E643D6C62DA} = {288CC8C6-70AC-43EE-82F2-B3E473EC14D0}
 		{B8400F01-E3A2-1CA0-C20D-ABE68C7BEF2E} = {9109B6CC-DB10-459C-A602-9C3E4C742B86}
+		{A895F1D7-14FA-4DF6-B268-FC9EB551908F} = {D5D95469-817C-4D2B-B715-75A6E49C12D6}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {AAB6086B-0093-4359-B165-2430B2245404}
