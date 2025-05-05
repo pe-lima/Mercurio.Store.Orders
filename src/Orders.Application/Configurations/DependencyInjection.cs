@@ -8,6 +8,8 @@ using Orders.Application.Handlers.OrderHandler;
 using Orders.Application.Mappers.OrderMapper;
 using Orders.Application.Validators.OrderValidator;
 using Orders.Domain.Entities;
+using Orders.Application.Common.Implementations;
+using Orders.Application.Queries.OrderQuery;
 
 namespace Orders.Application.Configurations
 {
@@ -20,10 +22,15 @@ namespace Orders.Application.Configurations
 
             //handlers
             services.AddScoped<IHandler<CreateOrderCommand, OrderDto>, CreateOrderCommandHandler>();
+            services.AddScoped<IHandler<GetAllOrdersQuery, List<OrderDto>>, GetAllOrdersQueryHandler>();
+            services.AddScoped<IHandler<GetOrdersByIdQuery, OrderDto>, GetOrdersByIdQueryHandler>();
 
             // (validators)
             services.AddValidatorsFromAssemblyContaining<CreateOrderCommandValidator>();
             services.AddFluentValidationAutoValidation();
+
+            // (dispatcher)
+            services.AddScoped<IApplicationDispatcher, ApplicationDispatcher>();
 
             return services;
         }

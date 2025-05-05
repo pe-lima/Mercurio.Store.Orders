@@ -32,7 +32,7 @@ namespace Orders.Tests.Application.Handlers.OrderHandler
             var expectedOrder = new Order(command.BuyerId, command.Items.Select(i =>
                 new OrderItem(i.ProductId, i.ProductName, i.UnitPrice, i.Quantity)).ToList());
 
-            var expectedDto = new OrderDto(expectedOrder.Id, command.BuyerId, "Pending", expectedOrder.CreatedAt, new());
+            var expectedDto = new OrderDto(expectedOrder.Id, command.BuyerId, "Pending", expectedOrder.CreatedAt, new(), expectedOrder.IsActive);
 
             _mockUnitOfWork
                 .Setup(x => x.Order.AddAsync(It.IsAny<Order>()))

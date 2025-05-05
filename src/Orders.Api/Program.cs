@@ -1,12 +1,11 @@
 using Orders.IoC;
 using Microsoft.OpenApi.Models;
+using Orders.CrossCutting.Middlewares;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-
 builder.Services.AddControllers();
-
 
 // Swagger configuration
 builder.Services.AddEndpointsApiExplorer();
@@ -38,6 +37,12 @@ if (app.Environment.IsDevelopment())
         c.RoutePrefix = string.Empty;
     });
 }
+
+app.UseMiddleware<GlobalExceptionMiddleware>();
+
+app.UseSwagger();
+
+app.UseSwaggerUI();
 
 app.UseHttpsRedirection();
 
