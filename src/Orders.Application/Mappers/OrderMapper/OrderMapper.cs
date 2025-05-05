@@ -20,7 +20,8 @@ public class OrderMapper : IMapper<Order, OrderDto>
             order.BuyerId,
             order.Status.ToString(),
             order.CreatedAt,
-            itemDtos
+            itemDtos,
+            order.IsActive
         );
     }
 

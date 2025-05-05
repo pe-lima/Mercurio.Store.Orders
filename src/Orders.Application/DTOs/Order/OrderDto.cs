@@ -11,6 +11,7 @@ namespace Orders.Application.DTOs.Order
         Guid BuyerId,
         string Status,
         DateTime CreatedAt,
-        List<OrderItemDto> Items
+        List<OrderItemDto> Items,
+        bool IsActive
     );
 }
