@@ -72,10 +72,15 @@ namespace Orders.Tests.Application.Handlers.OrderHandler
             var order = new Order(Guid.NewGuid(), new List<OrderItem>());
             var command = new DeleteOrderCommand(order.Id);
 
-            _mockOrderRepo.Setup(r => r.GetByIdAsync(order.Id)).ReturnsAsync(order);
+            _mockOrderRepo
+                .Setup(r => r.GetByIdAsync(order.Id))
+                .ReturnsAsync(order);
 
             _mockOrderRepo.Setup(r => r.Update(order));
-            _mockUnitOfWork.Setup(u => u.SaveChangesAsync()).ReturnsAsync(1);
+            
+            _mockUnitOfWork
+                .Setup(u => u.SaveChangesAsync())
+                .ReturnsAsync(1);
 
             // Act
             await _handler.HandleAsync(command);

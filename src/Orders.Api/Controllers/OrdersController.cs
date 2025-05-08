@@ -49,6 +49,15 @@ public class OrdersController : ControllerBase
     public async Task<IActionResult> Delete(Guid id)
     {
         await _dispatcher.SendAsync<DeleteOrderCommand>(new(id));
+        
+        return NoContent();
+    }
+
+    [HttpPatch("{id:guid}/pay")]
+    public async Task<IActionResult> Pay(Guid id)
+    {
+        await _dispatcher.SendAsync<MarkOrderAsPaidCommand>(new(id));
+
         return NoContent();
     }
 }

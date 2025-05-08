@@ -20,11 +20,14 @@ namespace Orders.Application.Configurations
             // (mappers) 
             services.AddScoped<IMapper<Order, OrderDto>, OrderMapper>();
 
-            //handlers
+            //(handlers)
             services.AddScoped<IHandler<CreateOrderCommand, OrderDto>, CreateOrderCommandHandler>();
             services.AddScoped<IHandler<GetAllOrdersQuery, List<OrderDto>>, GetAllOrdersQueryHandler>();
             services.AddScoped<IHandler<GetOrdersByIdQuery, OrderDto>, GetOrdersByIdQueryHandler>();
+
             services.AddScoped<IHandler<DeleteOrderCommand>, DeleteOrderCommandHandler>();
+            services.AddScoped<IHandler<MarkOrderAsPaidCommand>, MarkOrderAsPaidCommandHandler>();
+
 
             // (validators)
             services.AddValidatorsFromAssemblyContaining<CreateOrderCommandValidator>();

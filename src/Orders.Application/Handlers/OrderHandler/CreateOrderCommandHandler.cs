@@ -19,9 +19,12 @@ namespace Orders.Application.Handlers.OrderHandler
 
         public async Task<OrderDto> HandleAsync(CreateOrderCommand command)
         {
-            var items = command.Items.Select(i =>
-                new OrderItem(i.ProductId, i.ProductName, i.UnitPrice, i.Quantity)
-            ).ToList();
+            var items = command.Items
+                .Select(i => new OrderItem(
+                    i.ProductId, 
+                    i.ProductName, 
+                    i.UnitPrice, 
+                    i.Quantity)).ToList();
 
             var order = new Order(command.BuyerId, items);
 
